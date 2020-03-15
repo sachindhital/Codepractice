@@ -1,0 +1,33 @@
+'''mplement int sqrt(int x).
+
+Compute and return the square root of x.
+
+If x is not a perfect square, return floor(sqrt(x))
+
+Example:
+
+Input : 11
+Output : 3
+Warning: DO NOT USE SQRT FUNCTION FROM STANDARD LIBRARY'''''
+
+''''@sachindhital'''
+
+class Solution:
+    def sqrt(self, x):
+        # write your method here
+        list1=[i for i in range(0,x+1)]
+        low=0
+        high=len(list1)-1
+        
+        while high>=low:
+            mid=low+(high-low)//2
+            mid_value=list1[mid]
+            if (mid_value)**2 <=x and (mid_value+1)**2>x:                
+                return mid_value
+            elif (mid_value)**2>x:
+                high=mid-1
+            else:
+                low=mid+1
+        return -1
+                
+                
